@@ -5,51 +5,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>世界経済・政治ニュース ダイジェスト</title>
 <style>
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; }
   body { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", "Segoe UI", sans-serif;
          background: #f5f6f8; color: #1f2329; margin: 0; padding: 0 0 60px; }
-  header { background: #16243f; color: #fff; padding: 24px 20px; }
-  header h1 { margin: 0 0 4px; font-size: 22px; }
-  header .ts { font-size: 13px; color: #b7c2d6; }
+  header { background: #16243f; color: #fff; padding: 18px 16px; }
+  header h1 { margin: 0 0 4px; font-size: 19px; }
+  header .ts { font-size: 12px; color: #b7c2d6; }
   header .disclaimer { font-size: 11px; color: #8fa0c2; margin-top: 8px; line-height: 1.5; }
-  nav { background: #1f3258; padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 14px;
-        position: sticky; top: 0; z-index: 10; }
-  nav a { color: #d7e2f5; text-decoration: none; font-size: 14px; }
-  nav a:hover { text-decoration: underline; }
-  main { max-width: 820px; margin: 0 auto; padding: 20px; }
-  .category { margin-bottom: 40px; }
-  .category h2 { font-size: 18px; border-left: 5px solid #2b59c3; padding-left: 10px; margin-bottom: 14px; }
-  .card { background: #fff; border-radius: 10px; padding: 0; margin-bottom: 14px;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden; display: flex; gap: 0; }
-  .card .thumb-wrap { flex: 0 0 140px; position: relative; background: #eef1f6; }
-  .thumb { width: 140px; height: 140px; object-fit: cover; display: block; }
-  .thumb-fallback { width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;
-                     font-size: 46px; background: linear-gradient(135deg,#e7ecf5,#cfd8e8); }
-  .card-body { padding: 12px 16px; flex: 1; min-width: 0; position: relative; }
-  .badge-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
-  .badge { font-size: 11px; font-weight: 700; color: #fff; padding: 2px 8px; border-radius: 10px; }
-  .card-title { font-size: 15px; font-weight: 600; color: #16243f; text-decoration: none; display: block; }
+  nav { background: #1f3258; padding: 10px 12px; display: flex; flex-wrap: nowrap; gap: 10px;
+        position: sticky; top: 0; z-index: 10; overflow-x: auto; -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; }
+  nav::-webkit-scrollbar { display: none; }
+  nav a { color: #d7e2f5; text-decoration: none; font-size: 14px; flex: 0 0 auto;
+          padding: 6px 10px; background: rgba(255,255,255,0.08); border-radius: 14px; white-space: nowrap; }
+  nav a:hover, nav a:active { background: rgba(255,255,255,0.18); }
+  main { max-width: 820px; margin: 0 auto; padding: 14px 10px; }
+  .category { margin-bottom: 32px; }
+  .category h2 { font-size: 18px; border-left: 5px solid #2b59c3; padding-left: 10px; margin-bottom: 12px; }
+  .card { background: #fff; border-radius: 12px; padding: 0; margin-bottom: 14px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden;
+          display: flex; flex-direction: column; gap: 0; }
+  .card .thumb-wrap { width: 100%; position: relative; background: #eef1f6; }
+  .thumb { width: 100%; height: 180px; object-fit: cover; display: block; }
+  .thumb-fallback { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center;
+                     font-size: 52px; background: linear-gradient(135deg,#e7ecf5,#cfd8e8); }
+  .card-body { padding: 14px 16px; flex: 1; min-width: 0; position: relative; }
+  .badge-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .badge { font-size: 12px; font-weight: 700; color: #fff; padding: 3px 10px; border-radius: 10px; }
+  .card-title { font-size: 17px; font-weight: 600; color: #16243f; text-decoration: none; display: block;
+                line-height: 1.4; }
   .card-title:hover { text-decoration: underline; }
-  .card-meta { font-size: 12px; color: #6b7686; margin: 4px 0 6px; }
-  .card-desc { font-size: 13px; color: #3a4150; margin: 0 0 8px; line-height: 1.55; }
-  .audit-comment { font-size: 12px; color: #1d4f6b; background: #eaf3fa; border-left: 3px solid #2b86c5;
-                    padding: 6px 10px; border-radius: 4px; margin: 6px 0; line-height: 1.5; }
+  .card-meta { font-size: 13px; color: #6b7686; margin: 6px 0 8px; }
+  .card-desc { font-size: 14.5px; color: #3a4150; margin: 0 0 10px; line-height: 1.6; }
+  .audit-comment { font-size: 13px; color: #1d4f6b; background: #eaf3fa; border-left: 3px solid #2b86c5;
+                    padding: 8px 10px; border-radius: 4px; margin: 8px 0; line-height: 1.55; }
   .audit-comment b { color: #0d3a52; }
-  .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
-  .source-link { font-size: 12px; color: #2b59c3; text-decoration: none; }
+  .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+  .source-link { font-size: 13.5px; color: #2b59c3; text-decoration: none; padding: 6px 0; }
   .source-link:hover { text-decoration: underline; }
-  .fav-btn { border: none; background: none; cursor: pointer; font-size: 20px; color: #c7ccd6; line-height: 1; }
+  .fav-btn { border: none; background: none; cursor: pointer; font-size: 28px; color: #c7ccd6; line-height: 1;
+             padding: 4px 8px; margin: -4px -8px; }
   .fav-btn.active { color: #e3a008; }
   .empty { color: #8a93a3; font-size: 13px; }
   #favorites .card { border: 1px dashed #d8b34d; }
-  .fav-remove { font-size: 11px; color: #b23b3b; background: none; border: 1px solid #b23b3b;
-                border-radius: 10px; padding: 1px 8px; cursor: pointer; }
+  .fav-remove { font-size: 13px; color: #b23b3b; background: none; border: 1px solid #b23b3b;
+                border-radius: 10px; padding: 4px 12px; cursor: pointer; }
+
+  /* タブレット・PCなど画面が広い場合はサムネイルを左に並べて表示 */
+  @media (min-width: 640px) {
+    header { padding: 24px 20px; }
+    header h1 { font-size: 22px; }
+    main { padding: 20px; }
+    .card { flex-direction: row; }
+    .card .thumb-wrap { flex: 0 0 160px; width: 160px; }
+    .thumb, .thumb-fallback { width: 160px; height: 160px; }
+  }
 </style>
 </head>
 <body>
 <header>
   <h1>世界経済・政治ニュース ダイジェスト</h1>
-  <div class="ts">生成日時: 2026-06-16 13:44 JST</div>
+  <div class="ts">生成日時: 2026-06-16 16:12 JST</div>
   <div class="disclaimer">※重要度判定および「会計・監査への影響」コメントはキーワードに基づく簡易的な自動生成です。実務上の判断には必ず原文・専門的知見を確認してください。</div>
 </header>
 <nav>
@@ -71,73 +88,37 @@
           <h2>💹 世界経済・金融市場</h2>
           
             <article class="card">
-              <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260616/K10015150911_2606161222_0616122421_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>💹</div>'"></div>
+              <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260616/K10015150911_2606161531_0616153154_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>💹</div>'"></div>
               <div class="card-body">
                 <div class="badge-row"><span class="badge" style="background:#c0392b;">重要度: 高</span></div>
-                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015150911000.html" target="_blank" rel="noopener">日銀が利上げを決定 政策金利1％程度に引き上げ 31年ぶり水準</a>
-                <div class="card-meta">NHK NEWS WEB 経済 ・ 2026-06-16 13:29</div>
-                <p class="card-desc">日銀は16日まで開いた金融政策決定会合で、利上げに踏み切ることを決めました。イラン情勢の影響によるこれまでの原油高や円安傾向で値上げの動きが広がる中、この先、物価が大幅に上昇するのを抑える必要があるとして、政策金利を1995年以来、31年ぶりの高い水準となる1％程度に引き上げます。</p>
+                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015150911000.html" target="_blank" rel="noopener">【ライブ】日銀が利上げ決定 政策金利1％程度に 副総裁が会見</a>
+                <div class="card-meta">NHK NEWS WEB 経済 ・ 2026-06-16 16:01</div>
+                <p class="card-desc">日銀は16日まで開いた金融政策決定会合で、利上げに踏み切ることを決めました。イラン情勢の影響によるこれまでの原油高や円安傾向で値上げの動きが広がる中、この先、物価が大幅に上昇するのを抑える必要があるとして、政策金利を1995年以来、31年ぶりの高い水準となる1％程度に引き上げます。内田副総裁が植田総裁に代わって会見を開き、利上げを決めた背景や、今後の政策の見通しについて説明することにしています。</p>
                 <div class="audit-comment"><b>会計・監査への影響(参考):</b> 金利変動は固定利付資産・負債の公正価値評価、退職給付債務の算定に用いる割引率、減損テストの将来キャッシュ・フロー評価に影響する可能性があります。 外貨建資産・負債の換算差額、在外子会社の財務諸表換算（換算調整勘定）、ヘッジ会計の有効性評価に留意が必要です。</div>
                 <div class="card-footer">
                   <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015150911000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
-                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015150911000.html" data-title="日銀が利上げを決定 政策金利1％程度に引き上げ 31年ぶり水準"
-                          data-source="NHK NEWS WEB 経済" data-date="2026-06-16 13:29" data-summary="日銀は16日まで開いた金融政策決定会合で、利上げに踏み切ることを決めました。イラン情勢の影響によるこれまでの原油高や円安傾向で値上げの動きが広がる中、この先、物価が大幅に上昇するのを抑える必要があるとして、政策金利を1995年以来、31年ぶりの高い水準となる1％程度に引き上げます。"
-                          data-category="世界経済・金融市場" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015150911_2606161222_0616122421_01_02.jpg" data-icon="💹"
+                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015150911000.html" data-title="【ライブ】日銀が利上げ決定 政策金利1％程度に 副総裁が会見"
+                          data-source="NHK NEWS WEB 経済" data-date="2026-06-16 16:01" data-summary="日銀は16日まで開いた金融政策決定会合で、利上げに踏み切ることを決めました。イラン情勢の影響によるこれまでの原油高や円安傾向で値上げの動きが広がる中、この先、物価が大幅に上昇するのを抑える必要があるとして、政策金利を1995年以来、31年ぶりの高い水準となる1％程度に引き上げます。内田副総裁が植田総裁に代わって会見を開き、利上げを決めた背景や、今後の政策の見通しについて説明することにしています。"
+                          data-category="世界経済・金融市場" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015150911_2606161531_0616153154_01_02.jpg" data-icon="💹"
                           data-importance="高" data-comment="金利変動は固定利付資産・負債の公正価値評価、退職給付債務の算定に用いる割引率、減損テストの将来キャッシュ・フロー評価に影響する可能性があります。 外貨建資産・負債の換算差額、在外子会社の財務諸表換算（換算調整勘定）、ヘッジ会計の有効性評価に留意が必要です。">☆</button>
                 </div>
               </div>
             </article>
 
             <article class="card">
-              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260616/K10015150931_2606161246_0616124847_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>💹</div>'"></div>
               <div class="card-body">
                 <div class="badge-row"><span class="badge" style="background:#c0392b;">重要度: 高</span></div>
-                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015150931000.html" target="_blank" rel="noopener">株価 初めて7万円の大台突破 取引時間中の最高値更新</a>
-                <div class="card-meta">NHK NEWS WEB 経済 ・ 2026-06-16 12:48</div>
-                <p class="card-desc">16日の東京株式市場、日経平均株価は取引時間中の最高値を更新し、初めて7万円の大台を突破しました。トランプ大統領がアメリカとイランの戦闘終結に向けた覚書についてすでに署名したと明らかにしたほか、さきほど発表された日銀の追加利上げが市場の想定どおりだったとの見方が広がったことから半導体関連の銘柄を中心に買い注文が広がっています。</p>
+                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015150931000.html" target="_blank" rel="noopener">株価 初めて7万円を突破 日銀利上げ想定内との見方も後押しに</a>
+                <div class="card-meta">NHK NEWS WEB 経済 ・ 2026-06-16 13:59</div>
+                <p class="card-desc">16日の東京株式市場、午後に入って買い注文が集まり、日経平均株価は取引時間中の最高値を更新して、初めて7万円の大台を突破しました。正午すぎに発表された日銀の追加利上げが、市場の想定どおりだったと受け止められたことが上昇を後押ししました。</p>
                 <div class="audit-comment"><b>会計・監査への影響(参考):</b> 金利変動は固定利付資産・負債の公正価値評価、退職給付債務の算定に用いる割引率、減損テストの将来キャッシュ・フロー評価に影響する可能性があります。 保有有価証券の期末時価評価や、自己株式・株式報酬の公正価値測定への影響が考えられます。</div>
                 <div class="card-footer">
                   <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015150931000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
-                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015150931000.html" data-title="株価 初めて7万円の大台突破 取引時間中の最高値更新"
-                          data-source="NHK NEWS WEB 経済" data-date="2026-06-16 12:48" data-summary="16日の東京株式市場、日経平均株価は取引時間中の最高値を更新し、初めて7万円の大台を突破しました。トランプ大統領がアメリカとイランの戦闘終結に向けた覚書についてすでに署名したと明らかにしたほか、さきほど発表された日銀の追加利上げが市場の想定どおりだったとの見方が広がったことから半導体関連の銘柄を中心に買い注文が広がっています。"
-                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015150931000.html" data-title="株価 初めて7万円を突破 日銀利上げ想定内との見方も後押しに"
+                          data-source="NHK NEWS WEB 経済" data-date="2026-06-16 13:59" data-summary="16日の東京株式市場、午後に入って買い注文が集まり、日経平均株価は取引時間中の最高値を更新して、初めて7万円の大台を突破しました。正午すぎに発表された日銀の追加利上げが、市場の想定どおりだったと受け止められたことが上昇を後押ししました。"
+                          data-category="世界経済・金融市場" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015150931_2606161246_0616124847_01_02.jpg" data-icon="💹"
                           data-importance="高" data-comment="金利変動は固定利付資産・負債の公正価値評価、退職給付債務の算定に用いる割引率、減損テストの将来キャッシュ・フロー評価に影響する可能性があります。 保有有価証券の期末時価評価や、自己株式・株式報酬の公正価値測定への影響が考えられます。">☆</button>
-                </div>
-              </div>
-            </article>
-
-            <article class="card">
-              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
-              <div class="card-body">
-                <div class="badge-row"><span class="badge" style="background:#c0392b;">重要度: 高</span></div>
-                <a class="card-title" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k260616d.pdf" target="_blank" rel="noopener">（参考）長期国債の買入れ計画（2026年６月金融政策決定会合）</a>
-                <div class="card-meta">日本銀行 新着情報 ・ 2026-06-16 12:19</div>
-                <p class="card-desc"></p>
-                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 金利変動は固定利付資産・負債の公正価値評価、退職給付債務の算定に用いる割引率、減損テストの将来キャッシュ・フロー評価に影響する可能性があります。</div>
-                <div class="card-footer">
-                  <a class="source-link" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k260616d.pdf" target="_blank" rel="noopener">元記事を読む &rarr;</a>
-                  <button class="fav-btn" data-link="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k260616d.pdf" data-title="（参考）長期国債の買入れ計画（2026年６月金融政策決定会合）"
-                          data-source="日本銀行 新着情報" data-date="2026-06-16 12:19" data-summary=""
-                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
-                          data-importance="高" data-comment="金利変動は固定利付資産・負債の公正価値評価、退職給付債務の算定に用いる割引率、減損テストの将来キャッシュ・フロー評価に影響する可能性があります。">☆</button>
-                </div>
-              </div>
-            </article>
-
-            <article class="card">
-              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
-              <div class="card-body">
-                <div class="badge-row"><span class="badge" style="background:#c0392b;">重要度: 高</span></div>
-                <a class="card-title" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k260616c.pdf" target="_blank" rel="noopener">（参考）金融市場調節方針の変更（2026年６月金融政策決定会合）</a>
-                <div class="card-meta">日本銀行 新着情報 ・ 2026-06-16 12:19</div>
-                <p class="card-desc"></p>
-                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 金利変動は固定利付資産・負債の公正価値評価、退職給付債務の算定に用いる割引率、減損テストの将来キャッシュ・フロー評価に影響する可能性があります。</div>
-                <div class="card-footer">
-                  <a class="source-link" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k260616c.pdf" target="_blank" rel="noopener">元記事を読む &rarr;</a>
-                  <button class="fav-btn" data-link="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/k260616c.pdf" data-title="（参考）金融市場調節方針の変更（2026年６月金融政策決定会合）"
-                          data-source="日本銀行 新着情報" data-date="2026-06-16 12:19" data-summary=""
-                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
-                          data-importance="高" data-comment="金利変動は固定利付資産・負債の公正価値評価、退職給付債務の算定に用いる割引率、減損テストの将来キャッシュ・フロー評価に影響する可能性があります。">☆</button>
                 </div>
               </div>
             </article>
@@ -199,17 +180,89 @@
             <article class="card">
               <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
               <div class="card-body">
-                <div class="badge-row"><span class="badge" style="background:#b8860b;">重要度: 中</span></div>
-                <a class="card-title" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616c.pdf" target="_blank" rel="noopener">「補完当座預金制度基本要領」の一部改正について</a>
-                <div class="card-meta">日本銀行 新着情報 ・ 2026-06-16 13:00</div>
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616b.pdf" target="_blank" rel="noopener">当面の長期国債等の買入れの運営について</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-06-16 15:00</div>
                 <p class="card-desc"></p>
-                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 監督当局の方針転換は、関連業種のコンプライアンス対応や内部統制の評価範囲の見直しに直結する可能性があります。</div>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
                 <div class="card-footer">
-                  <a class="source-link" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616c.pdf" target="_blank" rel="noopener">元記事を読む &rarr;</a>
-                  <button class="fav-btn" data-link="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616c.pdf" data-title="「補完当座預金制度基本要領」の一部改正について"
-                          data-source="日本銀行 新着情報" data-date="2026-06-16 13:00" data-summary=""
+                  <a class="source-link" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616b.pdf" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616b.pdf" data-title="当面の長期国債等の買入れの運営について"
+                          data-source="日本銀行 新着情報" data-date="2026-06-16 15:00" data-summary=""
                           data-category="世界経済・金融市場" data-image="" data-icon="💹"
-                          data-importance="中" data-comment="監督当局の方針転換は、関連業種のコンプライアンス対応や内部統制の評価範囲の見直しに直結する可能性があります。">☆</button>
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616a.pdf" target="_blank" rel="noopener">長期国債買入れ（利回り・価格入札方式）の四半期予定（2026年7～9月）</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-06-16 15:00</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616a.pdf" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616a.pdf" data-title="長期国債買入れ（利回り・価格入札方式）の四半期予定（2026年7～9月）"
+                          data-source="日本銀行 新着情報" data-date="2026-06-16 15:00" data-summary=""
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260616/K10015151221_2606161455_0616145620_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>💹</div>'"></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015151221000.html" target="_blank" rel="noopener">鳥インフルエンザによる卵値上がり抑制へ 農水省が対策</a>
+                <div class="card-meta">NHK NEWS WEB 経済 ・ 2026-06-16 14:53</div>
+                <p class="card-desc">鳥インフルエンザがこのところ相次いで発生し、卵の値上がりにつながっているとして、農林水産省は卵を安定供給するための対策パッケージをまとめました。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> サプライチェーンの混乱は在庫評価や仕入先への前渡金の回収可能性評価に影響する可能性があります。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015151221000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015151221000.html" data-title="鳥インフルエンザによる卵値上がり抑制へ 農水省が対策"
+                          data-source="NHK NEWS WEB 経済" data-date="2026-06-16 14:53" data-summary="鳥インフルエンザがこのところ相次いで発生し、卵の値上がりにつながっているとして、農林水産省は卵を安定供給するための対策パッケージをまとめました。"
+                          data-category="世界経済・金融市場" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015151221_2606161455_0616145620_01_02.jpg" data-icon="💹"
+                          data-importance="低" data-comment="サプライチェーンの混乱は在庫評価や仕入先への前渡金の回収可能性評価に影響する可能性があります。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260616/K10015151191_2606161431_0616144032_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>💹</div>'"></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015151191000.html" target="_blank" rel="noopener">ドコモとWOWOW 配信事業強化へ 新会社設立</a>
+                <div class="card-meta">NHK NEWS WEB 経済 ・ 2026-06-16 14:40</div>
+                <p class="card-desc">インターネットの動画配信サービスをめぐって海外勢との競争が激しくなる中、NTTドコモとWOWOWが新会社を設立し、配信事業を強化していくことになりました。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015151191000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015151191000.html" data-title="ドコモとWOWOW 配信事業強化へ 新会社設立"
+                          data-source="NHK NEWS WEB 経済" data-date="2026-06-16 14:40" data-summary="インターネットの動画配信サービスをめぐって海外勢との競争が激しくなる中、NTTドコモとWOWOWが新会社を設立し、配信事業を強化していくことになりました。"
+                          data-category="世界経済・金融市場" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015151191_2606161431_0616144032_01_02.jpg" data-icon="💹"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015151161000.html" target="_blank" rel="noopener">中国 5月の小売売上高 3年5か月ぶりのマイナスに</a>
+                <div class="card-meta">NHK NEWS WEB 経済 ・ 2026-06-16 14:10</div>
+                <p class="card-desc">中国の消費の動向を示す先月の「小売業の売上高」は、新型コロナウイルスの影響で消費が低迷していた2022年12月以来、3年5か月ぶりにマイナスとなりました。消費者の節約志向が強まっていることが示された形です。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 新型車・新製品の投入に伴う研究開発費の資産化判定や、設備投資・金型の減価償却期間の見直しに留意が必要です。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015151161000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015151161000.html" data-title="中国 5月の小売売上高 3年5か月ぶりのマイナスに"
+                          data-source="NHK NEWS WEB 経済" data-date="2026-06-16 14:10" data-summary="中国の消費の動向を示す先月の「小売業の売上高」は、新型コロナウイルスの影響で消費が低迷していた2022年12月以来、3年5か月ぶりにマイナスとなりました。消費者の節約志向が強まっていることが示された形です。"
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="低" data-comment="新型車・新製品の投入に伴う研究開発費の資産化判定や、設備投資・金型の減価償却期間の見直しに留意が必要です。">☆</button>
                 </div>
               </div>
             </article>
@@ -249,60 +302,60 @@
                 </div>
               </div>
             </article>
-
-            <article class="card">
-              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
-              <div class="card-body">
-                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
-                <a class="card-title" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616b.pdf" target="_blank" rel="noopener">当面の長期国債等の買入れの運営について</a>
-                <div class="card-meta">日本銀行 新着情報 ・ 2026-06-16 12:19</div>
-                <p class="card-desc"></p>
-                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
-                <div class="card-footer">
-                  <a class="source-link" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616b.pdf" target="_blank" rel="noopener">元記事を読む &rarr;</a>
-                  <button class="fav-btn" data-link="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616b.pdf" data-title="当面の長期国債等の買入れの運営について"
-                          data-source="日本銀行 新着情報" data-date="2026-06-16 12:19" data-summary=""
-                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
-                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
-                </div>
-              </div>
-            </article>
-
-            <article class="card">
-              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
-              <div class="card-body">
-                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
-                <a class="card-title" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616a.pdf" target="_blank" rel="noopener">長期国債買入れ（利回り・価格入札方式）の四半期予定（2026年7～9月）</a>
-                <div class="card-meta">日本銀行 新着情報 ・ 2026-06-16 12:19</div>
-                <p class="card-desc"></p>
-                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
-                <div class="card-footer">
-                  <a class="source-link" href="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616a.pdf" target="_blank" rel="noopener">元記事を読む &rarr;</a>
-                  <button class="fav-btn" data-link="http://www.boj.or.jp/mopo/mpmdeci/mpr_2026/mpr260616a.pdf" data-title="長期国債買入れ（利回り・価格入札方式）の四半期予定（2026年7～9月）"
-                          data-source="日本銀行 新着情報" data-date="2026-06-16 12:19" data-summary=""
-                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
-                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
-                </div>
-              </div>
-            </article>
         </section>
         <section id="geopolitics" class="category">
           <h2>🌐 国際政治・地政学</h2>
           
             <article class="card">
+              <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260616/K10015151171_2606161323_0616150938_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>🌐</div>'"></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#c0392b;">重要度: 高</span></div>
+                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015151171000.html" target="_blank" rel="noopener">皇室典範改正案など“衆参の特別委で審議を”中道 立民 公明</a>
+                <div class="card-meta">NHK NEWS WEB 政治 ・ 2026-06-16 15:09</div>
+                <p class="card-desc">安定的な皇位継承をめぐり、中道改革連合、立憲民主党、公明党の幹事長らが会談し、政府から法案が提出されれば衆参両院ともに新たな特別委員会を設置するよう、与党側に求めていくことで一致しました。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 監督当局の方針転換は、関連業種のコンプライアンス対応や内部統制の評価範囲の見直しに直結する可能性があります。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015151171000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015151171000.html" data-title="皇室典範改正案など“衆参の特別委で審議を”中道 立民 公明"
+                          data-source="NHK NEWS WEB 政治" data-date="2026-06-16 15:09" data-summary="安定的な皇位継承をめぐり、中道改革連合、立憲民主党、公明党の幹事長らが会談し、政府から法案が提出されれば衆参両院ともに新たな特別委員会を設置するよう、与党側に求めていくことで一致しました。"
+                          data-category="国際政治・地政学" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015151171_2606161323_0616150938_01_02.jpg" data-icon="🌐"
+                          data-importance="高" data-comment="監督当局の方針転換は、関連業種のコンプライアンス対応や内部統制の評価範囲の見直しに直結する可能性があります。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
               <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260616/K10015150961_2606161035_0616115928_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>🌐</div>'"></div>
               <div class="card-body">
                 <div class="badge-row"><span class="badge" style="background:#c0392b;">重要度: 高</span></div>
                 <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015150961000.html" target="_blank" rel="noopener">米 「19日に実務的な協議開始」 レバノンでは攻撃応酬も</a>
-                <div class="card-meta">NHK NEWS WEB 国際 ・ 2026-06-16 12:18</div>
+                <div class="card-meta">NHK NEWS WEB 国際 ・ 2026-06-16 14:46</div>
                 <p class="card-desc">アメリカのバンス副大統領はイランとの戦闘終結に向けた覚書について、19日に署名式を行うとともにイランとの間で実務的な協議を開始すると明らかにしました。一方、イスラエルとレバノンのイスラム教シーア派組織ヒズボラは15日も攻撃の応酬を続けていて、イラン側がレバノンでの戦闘終結を求めるなか、不安定な情勢が続いています。</p>
                 <div class="audit-comment"><b>会計・監査への影響(参考):</b> 地政学リスクの高まりは、海外関係会社のゴーイングコンサーン評価や、資源・物流コストの変動を通じた財務への影響に留意が必要です。</div>
                 <div class="card-footer">
                   <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015150961000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
                   <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015150961000.html" data-title="米 「19日に実務的な協議開始」 レバノンでは攻撃応酬も"
-                          data-source="NHK NEWS WEB 国際" data-date="2026-06-16 12:18" data-summary="アメリカのバンス副大統領はイランとの戦闘終結に向けた覚書について、19日に署名式を行うとともにイランとの間で実務的な協議を開始すると明らかにしました。一方、イスラエルとレバノンのイスラム教シーア派組織ヒズボラは15日も攻撃の応酬を続けていて、イラン側がレバノンでの戦闘終結を求めるなか、不安定な情勢が続いています。"
+                          data-source="NHK NEWS WEB 国際" data-date="2026-06-16 14:46" data-summary="アメリカのバンス副大統領はイランとの戦闘終結に向けた覚書について、19日に署名式を行うとともにイランとの間で実務的な協議を開始すると明らかにしました。一方、イスラエルとレバノンのイスラム教シーア派組織ヒズボラは15日も攻撃の応酬を続けていて、イラン側がレバノンでの戦闘終結を求めるなか、不安定な情勢が続いています。"
                           data-category="国際政治・地政学" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015150961_2606161035_0616115928_01_02.jpg" data-icon="🌐"
                           data-importance="高" data-comment="地政学リスクの高まりは、海外関係会社のゴーイングコンサーン評価や、資源・物流コストの変動を通じた財務への影響に留意が必要です。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260616/K10015151241_2606161411_0616144458_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>🌐</div>'"></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#c0392b;">重要度: 高</span></div>
+                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015151241000.html" target="_blank" rel="noopener">衆院憲法審査会 国民投票法改正案 18日採決で与野党が合意</a>
+                <div class="card-meta">NHK NEWS WEB 政治 ・ 2026-06-16 14:44</div>
+                <p class="card-desc">衆議院憲法審査会は、幹事懇談会を開き、18日の審査会で、自民党など4党が提出した憲法改正の手続きを定めた国民投票法の改正案の採決を行うことで与野党が合意しました。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 監督当局の方針転換は、関連業種のコンプライアンス対応や内部統制の評価範囲の見直しに直結する可能性があります。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015151241000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015151241000.html" data-title="衆院憲法審査会 国民投票法改正案 18日採決で与野党が合意"
+                          data-source="NHK NEWS WEB 政治" data-date="2026-06-16 14:44" data-summary="衆議院憲法審査会は、幹事懇談会を開き、18日の審査会で、自民党など4党が提出した憲法改正の手続きを定めた国民投票法の改正案の採決を行うことで与野党が合意しました。"
+                          data-category="国際政治・地政学" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015151241_2606161411_0616144458_01_02.jpg" data-icon="🌐"
+                          data-importance="高" data-comment="監督当局の方針転換は、関連業種のコンプライアンス対応や内部統制の評価範囲の見直しに直結する可能性があります。">☆</button>
                 </div>
               </div>
             </article>
@@ -339,60 +392,6 @@
                           data-source="NHK NEWS WEB 政治" data-date="2026-06-16 10:20" data-summary="（高市首相動静 2026年6月15日）（以下、すべて日本時間）00:22 ロンドン・スタンステッド空港発02:36 ローマ・フィウミチーノ空港到着。その後、ローマの宿泊先のアナンタラ・パラッツォ・ナイアディ・ローマ・ホテル。16:31 同ホテルで報道各社のインタビュー（～16:34）16:43 「無名戦士の墓」に献花（～16:50）18:15 ドーリア・パンフィーリ宮殿到着18:17 歓迎式典に参加（～18:21）18:26 メローニ首…"
                           data-category="国際政治・地政学" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015150891_2606160859_0616102014_01_02.jpg" data-icon="🌐"
                           data-importance="高" data-comment="地政学リスクの高まりは、海外関係会社のゴーイングコンサーン評価や、資源・物流コストの変動を通じた財務への影響に留意が必要です。">☆</button>
-                </div>
-              </div>
-            </article>
-
-            <article class="card">
-              <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260616/K10015150731_2606152328_0616082651_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>🌐</div>'"></div>
-              <div class="card-body">
-                <div class="badge-row"><span class="badge" style="background:#c0392b;">重要度: 高</span></div>
-                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015150731000.html" target="_blank" rel="noopener">イギリス 16歳未満のSNS利用を禁止する方針</a>
-                <div class="card-meta">NHK NEWS WEB 国際 ・ 2026-06-16 08:26</div>
-                <p class="card-desc">子どものSNS利用をめぐる規制に向けた動きが世界各地で広がるなか、イギリス政府は16歳未満を対象にSNSの利用を禁止する方針を発表しました。</p>
-                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 監督当局の方針転換は、関連業種のコンプライアンス対応や内部統制の評価範囲の見直しに直結する可能性があります。</div>
-                <div class="card-footer">
-                  <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015150731000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
-                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015150731000.html" data-title="イギリス 16歳未満のSNS利用を禁止する方針"
-                          data-source="NHK NEWS WEB 国際" data-date="2026-06-16 08:26" data-summary="子どものSNS利用をめぐる規制に向けた動きが世界各地で広がるなか、イギリス政府は16歳未満を対象にSNSの利用を禁止する方針を発表しました。"
-                          data-category="国際政治・地政学" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015150731_2606152328_0616082651_01_02.jpg" data-icon="🌐"
-                          data-importance="高" data-comment="監督当局の方針転換は、関連業種のコンプライアンス対応や内部統制の評価範囲の見直しに直結する可能性があります。">☆</button>
-                </div>
-              </div>
-            </article>
-
-            <article class="card">
-              <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260616/K10015150771_2606160015_0616053311_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>🌐</div>'"></div>
-              <div class="card-body">
-                <div class="badge-row"><span class="badge" style="background:#c0392b;">重要度: 高</span></div>
-                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015150771000.html" target="_blank" rel="noopener">G7サミット 仏で開幕 イラン情勢やウクライナ情勢など議論</a>
-                <div class="card-meta">NHK NEWS WEB 国際 ・ 2026-06-16 07:23</div>
-                <p class="card-desc">G7サミット＝主要7か国首脳会議が15日、フランスで始まり、初日の夕食会では各国の首脳がイランやウクライナ情勢などについて意見を交わしました。</p>
-                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 地政学リスクの高まりは、海外関係会社のゴーイングコンサーン評価や、資源・物流コストの変動を通じた財務への影響に留意が必要です。</div>
-                <div class="card-footer">
-                  <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015150771000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
-                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015150771000.html" data-title="G7サミット 仏で開幕 イラン情勢やウクライナ情勢など議論"
-                          data-source="NHK NEWS WEB 国際" data-date="2026-06-16 07:23" data-summary="G7サミット＝主要7か国首脳会議が15日、フランスで始まり、初日の夕食会では各国の首脳がイランやウクライナ情勢などについて意見を交わしました。"
-                          data-category="国際政治・地政学" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015150771_2606160015_0616053311_01_02.jpg" data-icon="🌐"
-                          data-importance="高" data-comment="地政学リスクの高まりは、海外関係会社のゴーイングコンサーン評価や、資源・物流コストの変動を通じた財務への影響に留意が必要です。">☆</button>
-                </div>
-              </div>
-            </article>
-
-            <article class="card">
-              <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260616/K10015150831_2606160658_0616070832_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>🌐</div>'"></div>
-              <div class="card-body">
-                <div class="badge-row"><span class="badge" style="background:#c0392b;">重要度: 高</span></div>
-                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015150831000.html" target="_blank" rel="noopener">NYダウ 終値としての最高値を更新 ホルムズ海峡の開放期待で</a>
-                <div class="card-meta">NHK NEWS WEB 国際 ・ 2026-06-16 07:08</div>
-                <p class="card-desc">15日のニューヨーク株式市場では、アメリカとイランが戦闘終結に向けた覚書を交わすことで合意したことで、ホルムズ海峡の開放への期待感が広がり、ダウ平均株価は先週末から一時、700ドル余り値上がりして取り引き時間中の最高値を更新したほか、終値も最高値を更新しました。</p>
-                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 保有有価証券の期末時価評価や、自己株式・株式報酬の公正価値測定への影響が考えられます。 地政学リスクの高まりは、海外関係会社のゴーイングコンサーン評価や、資源・物流コストの変動を通じた財務への影響に留意が必要です。</div>
-                <div class="card-footer">
-                  <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015150831000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
-                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015150831000.html" data-title="NYダウ 終値としての最高値を更新 ホルムズ海峡の開放期待で"
-                          data-source="NHK NEWS WEB 国際" data-date="2026-06-16 07:08" data-summary="15日のニューヨーク株式市場では、アメリカとイランが戦闘終結に向けた覚書を交わすことで合意したことで、ホルムズ海峡の開放への期待感が広がり、ダウ平均株価は先週末から一時、700ドル余り値上がりして取り引き時間中の最高値を更新したほか、終値も最高値を更新しました。"
-                          data-category="国際政治・地政学" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015150831_2606160658_0616070832_01_02.jpg" data-icon="🌐"
-                          data-importance="高" data-comment="保有有価証券の期末時価評価や、自己株式・株式報酬の公正価値測定への影響が考えられます。 地政学リスクの高まりは、海外関係会社のゴーイングコンサーン評価や、資源・物流コストの変動を通じた財務への影響に留意が必要です。">☆</button>
                 </div>
               </div>
             </article>
@@ -452,19 +451,37 @@
             </article>
 
             <article class="card">
-              <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260616/K10015150721_2606160130_0616055102_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>🌐</div>'"></div>
+              <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260616/K10015151181_2606161541_0616154239_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>🌐</div>'"></div>
               <div class="card-body">
-                <div class="badge-row"><span class="badge" style="background:#b8860b;">重要度: 中</span></div>
-                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015150721000.html" target="_blank" rel="noopener">トランプ大統領 “覚書すでに署名 19日にホルムズ海峡開放”</a>
-                <div class="card-meta">NHK NEWS WEB 国際 ・ 2026-06-16 06:56</div>
-                <p class="card-desc">アメリカのトランプ大統領はイランとの戦闘終結に向けた覚書についてすでに署名したと明らかにしました。覚書の署名式は19日にスイスで行われる予定で、トランプ大統領はホルムズ海峡が19日に完全に開放されるなどと主張していて、具体的な前進につながるのかが焦点となっています。</p>
-                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 地政学リスクの高まりは、海外関係会社のゴーイングコンサーン評価や、資源・物流コストの変動を通じた財務への影響に留意が必要です。</div>
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015151181000.html" target="_blank" rel="noopener">自民・維新・国民・参政 国旗損壊罪法案を共同提出</a>
+                <div class="card-meta">NHK NEWS WEB 政治 ・ 2026-06-16 15:42</div>
+                <p class="card-desc">自民・維新両党と国民民主党、参政党の4党は、日本の国旗を損壊する行為を罰する法案を共同で国会に提出しました。表現の自由に配慮すべきだという指摘を踏まえ、当初の案から一部の規定が削除されていて、4党は、今の国会で成立を図りたいとしています。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
                 <div class="card-footer">
-                  <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015150721000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
-                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015150721000.html" data-title="トランプ大統領 “覚書すでに署名 19日にホルムズ海峡開放”"
-                          data-source="NHK NEWS WEB 国際" data-date="2026-06-16 06:56" data-summary="アメリカのトランプ大統領はイランとの戦闘終結に向けた覚書についてすでに署名したと明らかにしました。覚書の署名式は19日にスイスで行われる予定で、トランプ大統領はホルムズ海峡が19日に完全に開放されるなどと主張していて、具体的な前進につながるのかが焦点となっています。"
-                          data-category="国際政治・地政学" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015150721_2606160130_0616055102_01_02.jpg" data-icon="🌐"
-                          data-importance="中" data-comment="地政学リスクの高まりは、海外関係会社のゴーイングコンサーン評価や、資源・物流コストの変動を通じた財務への影響に留意が必要です。">☆</button>
+                  <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015151181000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015151181000.html" data-title="自民・維新・国民・参政 国旗損壊罪法案を共同提出"
+                          data-source="NHK NEWS WEB 政治" data-date="2026-06-16 15:42" data-summary="自民・維新両党と国民民主党、参政党の4党は、日本の国旗を損壊する行為を罰する法案を共同で国会に提出しました。表現の自由に配慮すべきだという指摘を踏まえ、当初の案から一部の規定が削除されていて、4党は、今の国会で成立を図りたいとしています。"
+                          data-category="国際政治・地政学" data-image="https://imgu.web.nhk/news/u/news/html/20260616/K10015151181_2606161541_0616154239_01_02.jpg" data-icon="🌐"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">🌐</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015151161000.html" target="_blank" rel="noopener">中国 5月の小売売上高 3年5か月ぶりのマイナスに</a>
+                <div class="card-meta">NHK NEWS WEB 国際 ・ 2026-06-16 14:10</div>
+                <p class="card-desc">中国の消費の動向を示す先月の「小売業の売上高」は、新型コロナウイルスの影響で消費が低迷していた2022年12月以来、3年5か月ぶりにマイナスとなりました。消費者の節約志向が強まっていることが示された形です。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 新型車・新製品の投入に伴う研究開発費の資産化判定や、設備投資・金型の減価償却期間の見直しに留意が必要です。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015151161000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015151161000.html" data-title="中国 5月の小売売上高 3年5か月ぶりのマイナスに"
+                          data-source="NHK NEWS WEB 国際" data-date="2026-06-16 14:10" data-summary="中国の消費の動向を示す先月の「小売業の売上高」は、新型コロナウイルスの影響で消費が低迷していた2022年12月以来、3年5か月ぶりにマイナスとなりました。消費者の節約志向が強まっていることが示された形です。"
+                          data-category="国際政治・地政学" data-image="" data-icon="🌐"
+                          data-importance="低" data-comment="新型車・新製品の投入に伴う研究開発費の資産化判定や、設備投資・金型の減価償却期間の見直しに留意が必要です。">☆</button>
                 </div>
               </div>
             </article>
@@ -508,24 +525,6 @@
         <section id="auto_industry" class="category">
           <h2>🚗 自動車産業</h2>
           
-            <article class="card">
-              <div class="thumb-wrap"><div class="thumb-fallback">🚗</div></div>
-              <div class="card-body">
-                <div class="badge-row"><span class="badge" style="background:#c0392b;">重要度: 高</span></div>
-                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260616/k10015150931000.html" target="_blank" rel="noopener">株価 初めて7万円の大台突破 取引時間中の最高値更新</a>
-                <div class="card-meta">NHK NEWS WEB 経済（自動車関連） ・ 2026-06-16 12:48</div>
-                <p class="card-desc">16日の東京株式市場、日経平均株価は取引時間中の最高値を更新し、初めて7万円の大台を突破しました。トランプ大統領がアメリカとイランの戦闘終結に向けた覚書についてすでに署名したと明らかにしたほか、さきほど発表された日銀の追加利上げが市場の想定どおりだったとの見方が広がったことから半導体関連の銘柄を中心に買い注文が広がっています。</p>
-                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 金利変動は固定利付資産・負債の公正価値評価、退職給付債務の算定に用いる割引率、減損テストの将来キャッシュ・フロー評価に影響する可能性があります。 保有有価証券の期末時価評価や、自己株式・株式報酬の公正価値測定への影響が考えられます。</div>
-                <div class="card-footer">
-                  <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260616/k10015150931000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
-                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260616/k10015150931000.html" data-title="株価 初めて7万円の大台突破 取引時間中の最高値更新"
-                          data-source="NHK NEWS WEB 経済（自動車関連）" data-date="2026-06-16 12:48" data-summary="16日の東京株式市場、日経平均株価は取引時間中の最高値を更新し、初めて7万円の大台を突破しました。トランプ大統領がアメリカとイランの戦闘終結に向けた覚書についてすでに署名したと明らかにしたほか、さきほど発表された日銀の追加利上げが市場の想定どおりだったとの見方が広がったことから半導体関連の銘柄を中心に買い注文が広がっています。"
-                          data-category="自動車産業" data-image="" data-icon="🚗"
-                          data-importance="高" data-comment="金利変動は固定利付資産・負債の公正価値評価、退職給付債務の算定に用いる割引率、減損テストの将来キャッシュ・フロー評価に影響する可能性があります。 保有有価証券の期末時価評価や、自己株式・株式報酬の公正価値測定への影響が考えられます。">☆</button>
-                </div>
-              </div>
-            </article>
-
             <article class="card">
               <div class="thumb-wrap"><div class="thumb-fallback">🚗</div></div>
               <div class="card-body">
@@ -596,6 +595,24 @@
                           data-source="NHK NEWS WEB 経済（自動車関連）" data-date="2026-06-11 03:50" data-summary="トヨタ自動車は昨年度の役員報酬を公表し、豊田章男会長は21億1300万円で前の年度より8％増えました。トヨタの役員として過去最高の金額で、会社は、ほかの世界的な自動車メーカーのトップの水準を参考に見直したなどとしています。"
                           data-category="自動車産業" data-image="https://imgu.web.nhk/news/u/news/html/20260611/K10015146551_2606102359_0611035038_01_02.jpg" data-icon="🚗"
                           data-importance="中" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><img class="thumb" src="https://imgu.web.nhk/news/u/news/html/20260610/K10015145851_2606101131_0610114734_01_02.jpg" alt="" loading="lazy" onerror="this.outerHTML='<div class=&quot;thumb-fallback&quot;>🚗</div>'"></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#b8860b;">重要度: 中</span></div>
+                <a class="card-title" href="http://www3.nhk.or.jp/news/html/20260610/k10015145851000.html" target="_blank" rel="noopener">NTT 次世代技術「IOWN」普及へファンド設立 AI新興企業に投資</a>
+                <div class="card-meta">NHK NEWS WEB 経済（自動車関連） ・ 2026-06-10 16:50</div>
+                <p class="card-desc">NTTは、次世代のIT技術「IOWN」を国際的に普及させるため、国内外のおよそ20の企業が出資する新たなファンドを設立すると発表しました。日本と、アメリカのシリコンバレーに拠点を置き、AIや半導体など関連する技術の開発を手がける新興企業に投資する方針です。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> サプライチェーンの混乱は在庫評価や仕入先への前渡金の回収可能性評価に影響する可能性があります。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www3.nhk.or.jp/news/html/20260610/k10015145851000.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www3.nhk.or.jp/news/html/20260610/k10015145851000.html" data-title="NTT 次世代技術「IOWN」普及へファンド設立 AI新興企業に投資"
+                          data-source="NHK NEWS WEB 経済（自動車関連）" data-date="2026-06-10 16:50" data-summary="NTTは、次世代のIT技術「IOWN」を国際的に普及させるため、国内外のおよそ20の企業が出資する新たなファンドを設立すると発表しました。日本と、アメリカのシリコンバレーに拠点を置き、AIや半導体など関連する技術の開発を手がける新興企業に投資する方針です。"
+                          data-category="自動車産業" data-image="https://imgu.web.nhk/news/u/news/html/20260610/K10015145851_2606101131_0610114734_01_02.jpg" data-icon="🚗"
+                          data-importance="中" data-comment="サプライチェーンの混乱は在庫評価や仕入先への前渡金の回収可能性評価に影響する可能性があります。">☆</button>
                 </div>
               </div>
             </article>

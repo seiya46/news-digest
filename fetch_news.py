@@ -328,45 +328,62 @@ def escape_html(text):
 
 
 PAGE_CSS = """
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; }
   body { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", "Segoe UI", sans-serif;
          background: #f5f6f8; color: #1f2329; margin: 0; padding: 0 0 60px; }
-  header { background: #16243f; color: #fff; padding: 24px 20px; }
-  header h1 { margin: 0 0 4px; font-size: 22px; }
-  header .ts { font-size: 13px; color: #b7c2d6; }
+  header { background: #16243f; color: #fff; padding: 18px 16px; }
+  header h1 { margin: 0 0 4px; font-size: 19px; }
+  header .ts { font-size: 12px; color: #b7c2d6; }
   header .disclaimer { font-size: 11px; color: #8fa0c2; margin-top: 8px; line-height: 1.5; }
-  nav { background: #1f3258; padding: 10px 20px; display: flex; flex-wrap: wrap; gap: 14px;
-        position: sticky; top: 0; z-index: 10; }
-  nav a { color: #d7e2f5; text-decoration: none; font-size: 14px; }
-  nav a:hover { text-decoration: underline; }
-  main { max-width: 820px; margin: 0 auto; padding: 20px; }
-  .category { margin-bottom: 40px; }
-  .category h2 { font-size: 18px; border-left: 5px solid #2b59c3; padding-left: 10px; margin-bottom: 14px; }
-  .card { background: #fff; border-radius: 10px; padding: 0; margin-bottom: 14px;
-          box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden; display: flex; gap: 0; }
-  .card .thumb-wrap { flex: 0 0 140px; position: relative; background: #eef1f6; }
-  .thumb { width: 140px; height: 140px; object-fit: cover; display: block; }
-  .thumb-fallback { width: 140px; height: 140px; display: flex; align-items: center; justify-content: center;
-                     font-size: 46px; background: linear-gradient(135deg,#e7ecf5,#cfd8e8); }
-  .card-body { padding: 12px 16px; flex: 1; min-width: 0; position: relative; }
-  .badge-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
-  .badge { font-size: 11px; font-weight: 700; color: #fff; padding: 2px 8px; border-radius: 10px; }
-  .card-title { font-size: 15px; font-weight: 600; color: #16243f; text-decoration: none; display: block; }
+  nav { background: #1f3258; padding: 10px 12px; display: flex; flex-wrap: nowrap; gap: 10px;
+        position: sticky; top: 0; z-index: 10; overflow-x: auto; -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; }
+  nav::-webkit-scrollbar { display: none; }
+  nav a { color: #d7e2f5; text-decoration: none; font-size: 14px; flex: 0 0 auto;
+          padding: 6px 10px; background: rgba(255,255,255,0.08); border-radius: 14px; white-space: nowrap; }
+  nav a:hover, nav a:active { background: rgba(255,255,255,0.18); }
+  main { max-width: 820px; margin: 0 auto; padding: 14px 10px; }
+  .category { margin-bottom: 32px; }
+  .category h2 { font-size: 18px; border-left: 5px solid #2b59c3; padding-left: 10px; margin-bottom: 12px; }
+  .card { background: #fff; border-radius: 12px; padding: 0; margin-bottom: 14px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden;
+          display: flex; flex-direction: column; gap: 0; }
+  .card .thumb-wrap { width: 100%; position: relative; background: #eef1f6; }
+  .thumb { width: 100%; height: 180px; object-fit: cover; display: block; }
+  .thumb-fallback { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center;
+                     font-size: 52px; background: linear-gradient(135deg,#e7ecf5,#cfd8e8); }
+  .card-body { padding: 14px 16px; flex: 1; min-width: 0; position: relative; }
+  .badge-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .badge { font-size: 12px; font-weight: 700; color: #fff; padding: 3px 10px; border-radius: 10px; }
+  .card-title { font-size: 17px; font-weight: 600; color: #16243f; text-decoration: none; display: block;
+                line-height: 1.4; }
   .card-title:hover { text-decoration: underline; }
-  .card-meta { font-size: 12px; color: #6b7686; margin: 4px 0 6px; }
-  .card-desc { font-size: 13px; color: #3a4150; margin: 0 0 8px; line-height: 1.55; }
-  .audit-comment { font-size: 12px; color: #1d4f6b; background: #eaf3fa; border-left: 3px solid #2b86c5;
-                    padding: 6px 10px; border-radius: 4px; margin: 6px 0; line-height: 1.5; }
+  .card-meta { font-size: 13px; color: #6b7686; margin: 6px 0 8px; }
+  .card-desc { font-size: 14.5px; color: #3a4150; margin: 0 0 10px; line-height: 1.6; }
+  .audit-comment { font-size: 13px; color: #1d4f6b; background: #eaf3fa; border-left: 3px solid #2b86c5;
+                    padding: 8px 10px; border-radius: 4px; margin: 8px 0; line-height: 1.55; }
   .audit-comment b { color: #0d3a52; }
-  .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
-  .source-link { font-size: 12px; color: #2b59c3; text-decoration: none; }
+  .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+  .source-link { font-size: 13.5px; color: #2b59c3; text-decoration: none; padding: 6px 0; }
   .source-link:hover { text-decoration: underline; }
-  .fav-btn { border: none; background: none; cursor: pointer; font-size: 20px; color: #c7ccd6; line-height: 1; }
+  .fav-btn { border: none; background: none; cursor: pointer; font-size: 28px; color: #c7ccd6; line-height: 1;
+             padding: 4px 8px; margin: -4px -8px; }
   .fav-btn.active { color: #e3a008; }
   .empty { color: #8a93a3; font-size: 13px; }
   #favorites .card { border: 1px dashed #d8b34d; }
-  .fav-remove { font-size: 11px; color: #b23b3b; background: none; border: 1px solid #b23b3b;
-                border-radius: 10px; padding: 1px 8px; cursor: pointer; }
+  .fav-remove { font-size: 13px; color: #b23b3b; background: none; border: 1px solid #b23b3b;
+                border-radius: 10px; padding: 4px 12px; cursor: pointer; }
+
+  /* タブレット・PCなど画面が広い場合はサムネイルを左に並べて表示 */
+  @media (min-width: 640px) {
+    header { padding: 24px 20px; }
+    header h1 { font-size: 22px; }
+    main { padding: 20px; }
+    .card { flex-direction: row; }
+    .card .thumb-wrap { flex: 0 0 160px; width: 160px; }
+    .thumb, .thumb-fallback { width: 160px; height: 160px; }
+  }
 """
 
 PAGE_JS = """

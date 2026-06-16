@@ -2,7 +2,9 @@ name: Update News Digest
 
 on:
   schedule:
-    - cron: "0 21 * * *"  # 21:00 UTC = 06:00 JST
+    - cron: "0 21 * * *"  # 21:00 UTC = 06:00 JST（朝）
+    - cron: "0 3 * * *"   # 03:00 UTC = 12:00 JST（昼）
+    - cron: "0 9 * * *"   # 09:00 UTC = 18:00 JST（夕）
   workflow_dispatch: {}
 
 permissions:
