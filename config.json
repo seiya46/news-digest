@@ -1,0 +1,58 @@
+{
+  "max_items_per_category": 12,
+  "max_age_days": 14,
+  "categories": [
+    {
+      "id": "world_economy",
+      "name": "世界経済・金融市場",
+      "icon": "💹",
+      "sources": [
+        { "name": "NHK NEWS WEB 経済", "url": "https://www3.nhk.or.jp/rss/news/cat5.xml" },
+        { "name": "日本銀行 新着情報", "url": "https://www.boj.or.jp/rss/whatsnew.xml" }
+      ]
+    },
+    {
+      "id": "geopolitics",
+      "name": "国際政治・地政学",
+      "icon": "🌐",
+      "sources": [
+        { "name": "NHK NEWS WEB 国際", "url": "https://www3.nhk.or.jp/rss/news/cat6.xml" },
+        { "name": "NHK NEWS WEB 政治", "url": "https://www3.nhk.or.jp/rss/news/cat4.xml" }
+      ]
+    },
+    {
+      "id": "auto_industry",
+      "name": "自動車産業",
+      "icon": "🚗",
+      "sources": [
+        {
+          "name": "NHK NEWS WEB 経済（自動車関連）",
+          "url": "https://www3.nhk.or.jp/rss/news/cat5.xml",
+          "keywords": ["自動車", "EV", "電気自動車", "トヨタ", "日産", "ホンダ", "スズキ", "マツダ", "SUBARU", "スバル", "三菱自動車", "ダイハツ", "自動運転", "リコール", "半導体", "関税"]
+        },
+        { "name": "トヨタ自動車 ニュースリリース", "url": "https://global.toyota/export/jp/allnews_rss.xml" }
+      ]
+    },
+    {
+      "id": "toyota",
+      "name": "トヨタ自動車関連",
+      "icon": "🏁",
+      "sources": [
+        { "name": "トヨタ自動車 ニュースリリース", "url": "https://global.toyota/export/jp/allnews_rss.xml" }
+      ]
+    },
+    {
+      "id": "accounting_audit",
+      "name": "会計・監査基準動向",
+      "icon": "📊",
+      "sources": [
+        {
+          "name": "金融庁 新着情報（会計・監査関連）",
+          "url": "https://www.fsa.go.jp/fsaNewsListAll_rss2.xml",
+          "keywords": ["会計", "監査", "開示", "有価証券報告書", "内部統制", "IFRS", "サステナビリティ開示", "企業会計基準", "公認会計士", "財務報告", "ASBJ", "SSBJ"]
+        },
+        { "name": "公認会計士・監査審査会 新着情報", "url": "https://www.fsa.go.jp/cpaaobNewsList_rss2.xml" }
+      ]
+    }
+  ]
+}
