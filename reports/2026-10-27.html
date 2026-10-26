@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>世界経済・政治ニュース ダイジェスト</title>
+<style>
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { font-family: "Hiragino Kaku Gothic ProN", "Meiryo", "Segoe UI", sans-serif;
+         background: #f5f6f8; color: #1f2329; margin: 0; padding: 0 0 60px; }
+  header { background: #16243f; color: #fff; padding: 18px 16px; }
+  header h1 { margin: 0 0 4px; font-size: 19px; }
+  header .ts { font-size: 12px; color: #b7c2d6; }
+  header .disclaimer { font-size: 11px; color: #8fa0c2; margin-top: 8px; line-height: 1.5; }
+  nav { background: #1f3258; padding: 10px 12px; display: flex; flex-wrap: nowrap; gap: 10px;
+        position: sticky; top: 0; z-index: 10; overflow-x: auto; -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; }
+  nav::-webkit-scrollbar { display: none; }
+  nav a { color: #d7e2f5; text-decoration: none; font-size: 14px; flex: 0 0 auto;
+          padding: 6px 10px; background: rgba(255,255,255,0.08); border-radius: 14px; white-space: nowrap; }
+  nav a:hover, nav a:active { background: rgba(255,255,255,0.18); }
+  main { max-width: 820px; margin: 0 auto; padding: 14px 10px; }
+  .category { margin-bottom: 32px; }
+  .category h2 { font-size: 18px; border-left: 5px solid #2b59c3; padding-left: 10px; margin-bottom: 12px; }
+  .card { background: #fff; border-radius: 12px; padding: 0; margin-bottom: 14px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden;
+          display: flex; flex-direction: column; gap: 0; }
+  .card .thumb-wrap { width: 100%; position: relative; background: #eef1f6; }
+  .thumb { width: 100%; height: 180px; object-fit: cover; display: block; }
+  .thumb-fallback { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center;
+                     font-size: 52px; background: linear-gradient(135deg,#e7ecf5,#cfd8e8); }
+  .card-body { padding: 14px 16px; flex: 1; min-width: 0; position: relative; }
+  .badge-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .badge { font-size: 12px; font-weight: 700; color: #fff; padding: 3px 10px; border-radius: 10px; }
+  .card-title { font-size: 17px; font-weight: 600; color: #16243f; text-decoration: none; display: block;
+                line-height: 1.4; }
+  .card-title:hover { text-decoration: underline; }
+  .card-meta { font-size: 13px; color: #6b7686; margin: 6px 0 8px; }
+  .card-desc { font-size: 14.5px; color: #3a4150; margin: 0 0 10px; line-height: 1.6; }
+  .audit-comment { font-size: 13px; color: #1d4f6b; background: #eaf3fa; border-left: 3px solid #2b86c5;
+                    padding: 8px 10px; border-radius: 4px; margin: 8px 0; line-height: 1.55; }
+  .audit-comment b { color: #0d3a52; }
+  .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+  .source-link { font-size: 13.5px; color: #2b59c3; text-decoration: none; padding: 6px 0; }
+  .source-link:hover { text-decoration: underline; }
+  .fav-btn { border: none; background: none; cursor: pointer; font-size: 28px; color: #c7ccd6; line-height: 1;
+             padding: 4px 8px; margin: -4px -8px; }
+  .fav-btn.active { color: #e3a008; }
+  .empty { color: #8a93a3; font-size: 13px; }
+  #favorites .card { border: 1px dashed #d8b34d; }
+  .fav-remove { font-size: 13px; color: #b23b3b; background: none; border: 1px solid #b23b3b;
+                border-radius: 10px; padding: 4px 12px; cursor: pointer; }
+
+  /* タブレット・PCなど画面が広い場合はサムネイルを左に並べて表示 */
+  @media (min-width: 640px) {
+    header { padding: 24px 20px; }
+    header h1 { font-size: 22px; }
+    main { padding: 20px; }
+    .card { flex-direction: row; }
+    .card .thumb-wrap { flex: 0 0 160px; width: 160px; }
+    .thumb, .thumb-fallback { width: 160px; height: 160px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>世界経済・政治ニュース ダイジェスト</h1>
+  <div class="ts">生成日時: 2026-10-27 00:37 JST</div>
+  <div class="disclaimer">※重要度判定および「会計・監査への影響」コメントはキーワードに基づく簡易的な自動生成です。実務上の判断には必ず原文・専門的知見を確認してください。</div>
+</header>
+<nav>
+<a href="#favorites">★ お気に入り(<span id="fav-count">0</span>)</a>
+<a href="#world_economy">💹 世界経済・金融市場</a>
+<a href="#geopolitics">🌐 国際政治・地政学</a>
+<a href="#auto_industry">🚗 自動車産業</a>
+<a href="#toyota">🏁 トヨタ自動車関連</a>
+<a href="#accounting_audit">📊 会計・監査基準動向</a>
+</nav>
+<main>
+
+        <section id="favorites" class="category">
+          <h2>★ お気に入り</h2>
+          <div id="favorites-list"></div>
+        </section>
+
+        <section id="world_economy" class="category">
+          <h2>💹 世界経済・金融市場</h2>
+          
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#c0392b;">重要度: 高</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/finsys/intlact_fs/kisei/kis261020a.htm" target="_blank" rel="noopener">バーゼル銀行監督委員会による「整合性評価プログラム（RCAP）におけるレバレッジ比率規制の評価」の公表について</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-10-20 17:00</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 監督当局の方針転換は、関連業種のコンプライアンス対応や内部統制の評価範囲の見直しに直結する可能性があります。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www.boj.or.jp/finsys/intlact_fs/kisei/kis261020a.htm" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/finsys/intlact_fs/kisei/kis261020a.htm" data-title="バーゼル銀行監督委員会による「整合性評価プログラム（RCAP）におけるレバレッジ比率規制の評価」の公表について"
+                          data-source="日本銀行 新着情報" data-date="2026-10-20 17:00" data-summary=""
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="高" data-comment="監督当局の方針転換は、関連業種のコンプライアンス対応や内部統制の評価範囲の見直しに直結する可能性があります。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#b8860b;">重要度: 中</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/finsys/intlact_fs/kisei/kis261023a.htm" target="_blank" rel="noopener">バーゼル銀行監督委員会による「グローバルなシステム上重要な銀行（G-SIB）-ウィンドウ・ドレッシング行動に対処するための評価枠組みの改訂」及び市中協議文書「G-SIB評価手法のレビュー」の公表について</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-10-23 17:00</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www.boj.or.jp/finsys/intlact_fs/kisei/kis261023a.htm" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/finsys/intlact_fs/kisei/kis261023a.htm" data-title="バーゼル銀行監督委員会による「グローバルなシステム上重要な銀行（G-SIB）-ウィンドウ・ドレッシング行動に対処するための評価枠組みの改訂」及び市中協議文書「G-SIB評価手法のレビュー」の公表について"
+                          data-source="日本銀行 新着情報" data-date="2026-10-23 17:00" data-summary=""
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="中" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#b8860b;">重要度: 中</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/statistics/boj/other/acmai/release/2026/ac261020.htm" target="_blank" rel="noopener">営業毎旬報告（10月20日現在）</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-10-22 10:00</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www.boj.or.jp/statistics/boj/other/acmai/release/2026/ac261020.htm" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/statistics/boj/other/acmai/release/2026/ac261020.htm" data-title="営業毎旬報告（10月20日現在）"
+                          data-source="日本銀行 新着情報" data-date="2026-10-22 10:00" data-summary=""
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="中" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#b8860b;">重要度: 中</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/statistics/dl/loan/loos/release/loos2610.pdf" target="_blank" rel="noopener">主要銀行貸出動向アンケート調査（10月）</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-10-22 08:50</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www.boj.or.jp/statistics/dl/loan/loos/release/loos2610.pdf" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/statistics/dl/loan/loos/release/loos2610.pdf" data-title="主要銀行貸出動向アンケート調査（10月）"
+                          data-source="日本銀行 新着情報" data-date="2026-10-22 08:50" data-summary=""
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="中" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/about/organization/policyboard/pb_geppo/pbgp2609.htm" target="_blank" rel="noopener">日本銀行政策委員会月報（令和8年8・9月号）</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-10-23 16:30</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www.boj.or.jp/about/organization/policyboard/pb_geppo/pbgp2609.htm" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/about/organization/policyboard/pb_geppo/pbgp2609.htm" data-title="日本銀行政策委員会月報（令和8年8・9月号）"
+                          data-source="日本銀行 新着情報" data-date="2026-10-23 16:30" data-summary=""
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/research/brp/fsr/fsr261023.htm" target="_blank" rel="noopener">金融システムレポート（2026年10月号）</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-10-23 15:00</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www.boj.or.jp/research/brp/fsr/fsr261023.htm" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/research/brp/fsr/fsr261023.htm" data-title="金融システムレポート（2026年10月号）"
+                          data-source="日本銀行 新着情報" data-date="2026-10-23 15:00" data-summary=""
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/statistics/boj/other/mei/release/2026/mei261020.xlsx" target="_blank" rel="noopener">日本銀行が保有する国債の銘柄別残高</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-10-22 17:00</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www.boj.or.jp/statistics/boj/other/mei/release/2026/mei261020.xlsx" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/statistics/boj/other/mei/release/2026/mei261020.xlsx" data-title="日本銀行が保有する国債の銘柄別残高"
+                          data-source="日本銀行 新着情報" data-date="2026-10-22 17:00" data-summary=""
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/research/wps_rev/rev_2026/rev26j14.htm" target="_blank" rel="noopener">（日銀レビュー）企業の決算説明会テキストを用いた経済政策不確実性の考察</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-10-22 16:00</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 対象企業の財務状況の変化は、のれんや投資先の減損評価、継続企業の前提（ゴーイングコンサーン）の検討に関わる可能性があります。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www.boj.or.jp/research/wps_rev/rev_2026/rev26j14.htm" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/research/wps_rev/rev_2026/rev26j14.htm" data-title="（日銀レビュー）企業の決算説明会テキストを用いた経済政策不確実性の考察"
+                          data-source="日本銀行 新着情報" data-date="2026-10-22 16:00" data-summary=""
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="低" data-comment="対象企業の財務状況の変化は、のれんや投資先の減損評価、継続企業の前提（ゴーイングコンサーン）の検討に関わる可能性があります。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/research/research_data/reri/index.htm" target="_blank" rel="noopener">実質輸出入の動向</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-10-22 16:00</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www.boj.or.jp/research/research_data/reri/index.htm" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/research/research_data/reri/index.htm" data-title="実質輸出入の動向"
+                          data-source="日本銀行 新着情報" data-date="2026-10-22 16:00" data-summary=""
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/statistics/bis/repo/index.htm" target="_blank" rel="noopener">FSBレポ統計の日本分集計結果</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-10-22 08:50</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www.boj.or.jp/statistics/bis/repo/index.htm" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/statistics/bis/repo/index.htm" data-title="FSBレポ統計の日本分集計結果"
+                          data-source="日本銀行 新着情報" data-date="2026-10-22 08:50" data-summary=""
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/about/press/kaiken_2026/kk261020a.pdf" target="_blank" rel="noopener">【記者会見】植田総裁（G20、10月16日分）</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-10-20 15:00</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www.boj.or.jp/about/press/kaiken_2026/kk261020a.pdf" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/about/press/kaiken_2026/kk261020a.pdf" data-title="【記者会見】植田総裁（G20、10月16日分）"
+                          data-source="日本銀行 新着情報" data-date="2026-10-20 15:00" data-summary=""
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">💹</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="http://www.boj.or.jp/research/imes/mes/mes26.htm" target="_blank" rel="noopener">「金融研究」掲載論文（2026年収録分）</a>
+                <div class="card-meta">日本銀行 新着情報 ・ 2026-10-20 11:00</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="http://www.boj.or.jp/research/imes/mes/mes26.htm" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="http://www.boj.or.jp/research/imes/mes/mes26.htm" data-title="「金融研究」掲載論文（2026年収録分）"
+                          data-source="日本銀行 新着情報" data-date="2026-10-20 11:00" data-summary=""
+                          data-category="世界経済・金融市場" data-image="" data-icon="💹"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+        </section>
+        <section id="geopolitics" class="category">
+          <h2>🌐 国際政治・地政学</h2>
+          <p class="empty">該当する記事が見つかりませんでした。</p>
+        </section>
+        <section id="auto_industry" class="category">
+          <h2>🚗 自動車産業</h2>
+          
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">🚗</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#b8860b;">重要度: 中</span></div>
+                <a class="card-title" href="https://global.toyota/jp/newsroom/lexus/44911793.html" target="_blank" rel="noopener">LEXUS、「LBX」を一部改良</a>
+                <div class="card-meta">トヨタ自動車 ニュースリリース ・ 2026-10-22 13:30</div>
+                <p class="card-desc">LEXUSは、「LBX」を一部改良し、全国のレクサス店を通じて11月3日から発売します。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 新型車・新製品の投入に伴う研究開発費の資産化判定や、設備投資・金型の減価償却期間の見直しに留意が必要です。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://global.toyota/jp/newsroom/lexus/44911793.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://global.toyota/jp/newsroom/lexus/44911793.html" data-title="LEXUS、「LBX」を一部改良"
+                          data-source="トヨタ自動車 ニュースリリース" data-date="2026-10-22 13:30" data-summary="LEXUSは、「LBX」を一部改良し、全国のレクサス店を通じて11月3日から発売します。"
+                          data-category="自動車産業" data-image="" data-icon="🚗"
+                          data-importance="中" data-comment="新型車・新製品の投入に伴う研究開発費の資産化判定や、設備投資・金型の減価償却期間の見直しに留意が必要です。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">🚗</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="https://toyotatimes.jp/newscast/214.html?padid=ag478_from_newsroom" target="_blank" rel="noopener">[トヨタイムズ記事] 子どもたちの“夢のクルマ”が大集合 アートコンテスト受賞作を紹介</a>
+                <div class="card-meta">トヨタ自動車 ニュースリリース ・ 2026-10-19 17:00</div>
+                <p class="card-desc">世界中の子どもたちが26万の作品を応募した「第19回トヨタ夢のクルマアートコンテスト」。受賞作と共に横浜で行われる特別な“展示会”も紹介！</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://toyotatimes.jp/newscast/214.html?padid=ag478_from_newsroom" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://toyotatimes.jp/newscast/214.html?padid=ag478_from_newsroom" data-title="[トヨタイムズ記事] 子どもたちの“夢のクルマ”が大集合 アートコンテスト受賞作を紹介"
+                          data-source="トヨタ自動車 ニュースリリース" data-date="2026-10-19 17:00" data-summary="世界中の子どもたちが26万の作品を応募した「第19回トヨタ夢のクルマアートコンテスト」。受賞作と共に横浜で行われる特別な“展示会”も紹介！"
+                          data-category="自動車産業" data-image="" data-icon="🚗"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">🚗</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="https://jp.toyota-racing-newsroom.com/blog/wec/artikel/2026-6-hours-of-barcelona-race/text" target="_blank" rel="noopener">WEC 2026年シーズン 第7戦 バルセロナ6時間 ： 決勝
+TOYOTA RACING、1-2フィニッシュでマニュファクチャラーズタイトルを決める</a>
+                <div class="card-meta">トヨタ自動車 ニュースリリース ・ 2026-10-19 12:00</div>
+                <p class="card-desc">TOYOTA RACINGは、2026年FIA世界耐久選手権（WEC）バルセロナ6時間レースで1-2フィニッシュを達成し、マニュファクチャラーズチャンピオンシップのタイトルを獲得しました。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://jp.toyota-racing-newsroom.com/blog/wec/artikel/2026-6-hours-of-barcelona-race/text" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://jp.toyota-racing-newsroom.com/blog/wec/artikel/2026-6-hours-of-barcelona-race/text" data-title="WEC 2026年シーズン 第7戦 バルセロナ6時間 ： 決勝
+TOYOTA RACING、1-2フィニッシュでマニュファクチャラーズタイトルを決める"
+                          data-source="トヨタ自動車 ニュースリリース" data-date="2026-10-19 12:00" data-summary="TOYOTA RACINGは、2026年FIA世界耐久選手権（WEC）バルセロナ6時間レースで1-2フィニッシュを達成し、マニュファクチャラーズチャンピオンシップのタイトルを獲得しました。"
+                          data-category="自動車産業" data-image="" data-icon="🚗"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">🚗</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="https://toyota-automobile-museum.jp/event/detail/11301.html" target="_blank" rel="noopener">「第36回 トヨタ博物館 クラシックカー・フェスティバル」を11月15日（日）開催</a>
+                <div class="card-meta">トヨタ自動車 ニュースリリース ・ 2026-10-15 15:00</div>
+                <p class="card-desc">約120台の公道パレードと多彩なクルマ展示で、「ひろがる、つながる、クルマ文化」を発信</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://toyota-automobile-museum.jp/event/detail/11301.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://toyota-automobile-museum.jp/event/detail/11301.html" data-title="「第36回 トヨタ博物館 クラシックカー・フェスティバル」を11月15日（日）開催"
+                          data-source="トヨタ自動車 ニュースリリース" data-date="2026-10-15 15:00" data-summary="約120台の公道パレードと多彩なクルマ展示で、「ひろがる、つながる、クルマ文化」を発信"
+                          data-category="自動車産業" data-image="" data-icon="🚗"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">🚗</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="https://toyotatimes.jp/newscast/213.html?padid=ag478_from_newsroom" target="_blank" rel="noopener">[トヨタイムズ記事] どんなにAIが進化しても“ヒト中心”は変わらず TRIの研究開発最前線</a>
+                <div class="card-meta">トヨタ自動車 ニュースリリース ・ 2026-10-13 17:00</div>
+                <p class="card-desc">AIが進化すると、人間は支配されるのではないか。そんな不安に対するTRI（トヨタ・リサーチ・インスティテュート）のギル・プラットCEOの答えは？TRIの研究最前線に迫る。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://toyotatimes.jp/newscast/213.html?padid=ag478_from_newsroom" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://toyotatimes.jp/newscast/213.html?padid=ag478_from_newsroom" data-title="[トヨタイムズ記事] どんなにAIが進化しても“ヒト中心”は変わらず TRIの研究開発最前線"
+                          data-source="トヨタ自動車 ニュースリリース" data-date="2026-10-13 17:00" data-summary="AIが進化すると、人間は支配されるのではないか。そんな不安に対するTRI（トヨタ・リサーチ・インスティテュート）のギル・プラットCEOの答えは？TRIの研究最前線に迫る。"
+                          data-category="自動車産業" data-image="" data-icon="🚗"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">🚗</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="https://jp.toyota-racing-newsroom.com/blog/wec/artikel/2026-6-hours-of-barcelona-preview/text" target="_blank" rel="noopener">WEC 2026年シーズン 第7戦 バルセロナ6時間 ： プレビュー
+TOYOTA RACING、タイトル獲得に向け重要な一戦に挑む</a>
+                <div class="card-meta">トヨタ自動車 ニュースリリース ・ 2026-10-13 12:00</div>
+                <p class="card-desc">TOYOTA RACINGは、2026年FIA世界耐久選手権（WEC）第7戦バルセロナ6時間レースに臨みます。10月18日（日）に初開催となるバルセロナ6時間レースは、タイトル争いにおける重要な節目となります。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://jp.toyota-racing-newsroom.com/blog/wec/artikel/2026-6-hours-of-barcelona-preview/text" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://jp.toyota-racing-newsroom.com/blog/wec/artikel/2026-6-hours-of-barcelona-preview/text" data-title="WEC 2026年シーズン 第7戦 バルセロナ6時間 ： プレビュー
+TOYOTA RACING、タイトル獲得に向け重要な一戦に挑む"
+                          data-source="トヨタ自動車 ニュースリリース" data-date="2026-10-13 12:00" data-summary="TOYOTA RACINGは、2026年FIA世界耐久選手権（WEC）第7戦バルセロナ6時間レースに臨みます。10月18日（日）に初開催となるバルセロナ6時間レースは、タイトル争いにおける重要な節目となります。"
+                          data-category="自動車産業" data-image="" data-icon="🚗"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+        </section>
+        <section id="toyota" class="category">
+          <h2>🏁 トヨタ自動車関連</h2>
+          
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">🏁</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#b8860b;">重要度: 中</span></div>
+                <a class="card-title" href="https://global.toyota/jp/newsroom/lexus/44911793.html" target="_blank" rel="noopener">LEXUS、「LBX」を一部改良</a>
+                <div class="card-meta">トヨタ自動車 ニュースリリース ・ 2026-10-22 13:30</div>
+                <p class="card-desc">LEXUSは、「LBX」を一部改良し、全国のレクサス店を通じて11月3日から発売します。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 新型車・新製品の投入に伴う研究開発費の資産化判定や、設備投資・金型の減価償却期間の見直しに留意が必要です。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://global.toyota/jp/newsroom/lexus/44911793.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://global.toyota/jp/newsroom/lexus/44911793.html" data-title="LEXUS、「LBX」を一部改良"
+                          data-source="トヨタ自動車 ニュースリリース" data-date="2026-10-22 13:30" data-summary="LEXUSは、「LBX」を一部改良し、全国のレクサス店を通じて11月3日から発売します。"
+                          data-category="トヨタ自動車関連" data-image="" data-icon="🏁"
+                          data-importance="中" data-comment="新型車・新製品の投入に伴う研究開発費の資産化判定や、設備投資・金型の減価償却期間の見直しに留意が必要です。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">🏁</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="https://toyotatimes.jp/newscast/214.html?padid=ag478_from_newsroom" target="_blank" rel="noopener">[トヨタイムズ記事] 子どもたちの“夢のクルマ”が大集合 アートコンテスト受賞作を紹介</a>
+                <div class="card-meta">トヨタ自動車 ニュースリリース ・ 2026-10-19 17:00</div>
+                <p class="card-desc">世界中の子どもたちが26万の作品を応募した「第19回トヨタ夢のクルマアートコンテスト」。受賞作と共に横浜で行われる特別な“展示会”も紹介！</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://toyotatimes.jp/newscast/214.html?padid=ag478_from_newsroom" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://toyotatimes.jp/newscast/214.html?padid=ag478_from_newsroom" data-title="[トヨタイムズ記事] 子どもたちの“夢のクルマ”が大集合 アートコンテスト受賞作を紹介"
+                          data-source="トヨタ自動車 ニュースリリース" data-date="2026-10-19 17:00" data-summary="世界中の子どもたちが26万の作品を応募した「第19回トヨタ夢のクルマアートコンテスト」。受賞作と共に横浜で行われる特別な“展示会”も紹介！"
+                          data-category="トヨタ自動車関連" data-image="" data-icon="🏁"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">🏁</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="https://jp.toyota-racing-newsroom.com/blog/wec/artikel/2026-6-hours-of-barcelona-race/text" target="_blank" rel="noopener">WEC 2026年シーズン 第7戦 バルセロナ6時間 ： 決勝
+TOYOTA RACING、1-2フィニッシュでマニュファクチャラーズタイトルを決める</a>
+                <div class="card-meta">トヨタ自動車 ニュースリリース ・ 2026-10-19 12:00</div>
+                <p class="card-desc">TOYOTA RACINGは、2026年FIA世界耐久選手権（WEC）バルセロナ6時間レースで1-2フィニッシュを達成し、マニュファクチャラーズチャンピオンシップのタイトルを獲得しました。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://jp.toyota-racing-newsroom.com/blog/wec/artikel/2026-6-hours-of-barcelona-race/text" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://jp.toyota-racing-newsroom.com/blog/wec/artikel/2026-6-hours-of-barcelona-race/text" data-title="WEC 2026年シーズン 第7戦 バルセロナ6時間 ： 決勝
+TOYOTA RACING、1-2フィニッシュでマニュファクチャラーズタイトルを決める"
+                          data-source="トヨタ自動車 ニュースリリース" data-date="2026-10-19 12:00" data-summary="TOYOTA RACINGは、2026年FIA世界耐久選手権（WEC）バルセロナ6時間レースで1-2フィニッシュを達成し、マニュファクチャラーズチャンピオンシップのタイトルを獲得しました。"
+                          data-category="トヨタ自動車関連" data-image="" data-icon="🏁"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">🏁</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="https://toyota-automobile-museum.jp/event/detail/11301.html" target="_blank" rel="noopener">「第36回 トヨタ博物館 クラシックカー・フェスティバル」を11月15日（日）開催</a>
+                <div class="card-meta">トヨタ自動車 ニュースリリース ・ 2026-10-15 15:00</div>
+                <p class="card-desc">約120台の公道パレードと多彩なクルマ展示で、「ひろがる、つながる、クルマ文化」を発信</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://toyota-automobile-museum.jp/event/detail/11301.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://toyota-automobile-museum.jp/event/detail/11301.html" data-title="「第36回 トヨタ博物館 クラシックカー・フェスティバル」を11月15日（日）開催"
+                          data-source="トヨタ自動車 ニュースリリース" data-date="2026-10-15 15:00" data-summary="約120台の公道パレードと多彩なクルマ展示で、「ひろがる、つながる、クルマ文化」を発信"
+                          data-category="トヨタ自動車関連" data-image="" data-icon="🏁"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">🏁</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="https://toyotatimes.jp/newscast/213.html?padid=ag478_from_newsroom" target="_blank" rel="noopener">[トヨタイムズ記事] どんなにAIが進化しても“ヒト中心”は変わらず TRIの研究開発最前線</a>
+                <div class="card-meta">トヨタ自動車 ニュースリリース ・ 2026-10-13 17:00</div>
+                <p class="card-desc">AIが進化すると、人間は支配されるのではないか。そんな不安に対するTRI（トヨタ・リサーチ・インスティテュート）のギル・プラットCEOの答えは？TRIの研究最前線に迫る。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://toyotatimes.jp/newscast/213.html?padid=ag478_from_newsroom" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://toyotatimes.jp/newscast/213.html?padid=ag478_from_newsroom" data-title="[トヨタイムズ記事] どんなにAIが進化しても“ヒト中心”は変わらず TRIの研究開発最前線"
+                          data-source="トヨタ自動車 ニュースリリース" data-date="2026-10-13 17:00" data-summary="AIが進化すると、人間は支配されるのではないか。そんな不安に対するTRI（トヨタ・リサーチ・インスティテュート）のギル・プラットCEOの答えは？TRIの研究最前線に迫る。"
+                          data-category="トヨタ自動車関連" data-image="" data-icon="🏁"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">🏁</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="https://jp.toyota-racing-newsroom.com/blog/wec/artikel/2026-6-hours-of-barcelona-preview/text" target="_blank" rel="noopener">WEC 2026年シーズン 第7戦 バルセロナ6時間 ： プレビュー
+TOYOTA RACING、タイトル獲得に向け重要な一戦に挑む</a>
+                <div class="card-meta">トヨタ自動車 ニュースリリース ・ 2026-10-13 12:00</div>
+                <p class="card-desc">TOYOTA RACINGは、2026年FIA世界耐久選手権（WEC）第7戦バルセロナ6時間レースに臨みます。10月18日（日）に初開催となるバルセロナ6時間レースは、タイトル争いにおける重要な節目となります。</p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://jp.toyota-racing-newsroom.com/blog/wec/artikel/2026-6-hours-of-barcelona-preview/text" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://jp.toyota-racing-newsroom.com/blog/wec/artikel/2026-6-hours-of-barcelona-preview/text" data-title="WEC 2026年シーズン 第7戦 バルセロナ6時間 ： プレビュー
+TOYOTA RACING、タイトル獲得に向け重要な一戦に挑む"
+                          data-source="トヨタ自動車 ニュースリリース" data-date="2026-10-13 12:00" data-summary="TOYOTA RACINGは、2026年FIA世界耐久選手権（WEC）第7戦バルセロナ6時間レースに臨みます。10月18日（日）に初開催となるバルセロナ6時間レースは、タイトル争いにおける重要な節目となります。"
+                          data-category="トヨタ自動車関連" data-image="" data-icon="🏁"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+        </section>
+        <section id="accounting_audit" class="category">
+          <h2>📊 会計・監査基準動向</h2>
+          
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">📊</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#b8860b;">重要度: 中</span></div>
+                <a class="card-title" href="https://www.fsa.go.jp/singi/singi_kigyou/gijiroku/kansa/20261023.html" target="_blank" rel="noopener">企業会計審議会第57回監査部会議事録について公表しました。</a>
+                <div class="card-meta">金融庁 新着情報（会計・監査関連） ・ 2026-10-23 17:00</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://www.fsa.go.jp/singi/singi_kigyou/gijiroku/kansa/20261023.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://www.fsa.go.jp/singi/singi_kigyou/gijiroku/kansa/20261023.html" data-title="企業会計審議会第57回監査部会議事録について公表しました。"
+                          data-source="金融庁 新着情報（会計・監査関連）" data-date="2026-10-23 17:00" data-summary=""
+                          data-category="会計・監査基準動向" data-image="" data-icon="📊"
+                          data-importance="中" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">📊</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#b8860b;">重要度: 中</span></div>
+                <a class="card-title" href="https://www.fsa.go.jp/cpaaob/kouninkaikeishi-shiken/r8shiken/seikyu02/seikyu02.html" target="_blank" rel="noopener">試験,令和８年公認会計士試験受験案内の公表について（第Ⅱ回短答式試験用）</a>
+                <div class="card-meta">公認会計士・監査審査会 新着情報 ・ 2026-10-22 09:41</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://www.fsa.go.jp/cpaaob/kouninkaikeishi-shiken/r8shiken/seikyu02/seikyu02.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://www.fsa.go.jp/cpaaob/kouninkaikeishi-shiken/r8shiken/seikyu02/seikyu02.html" data-title="試験,令和８年公認会計士試験受験案内の公表について（第Ⅱ回短答式試験用）"
+                          data-source="公認会計士・監査審査会 新着情報" data-date="2026-10-22 09:41" data-summary=""
+                          data-category="会計・監査基準動向" data-image="" data-icon="📊"
+                          data-importance="中" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">📊</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#b8860b;">重要度: 中</span></div>
+                <a class="card-title" href="https://www.fsa.go.jp/cpaaob/kouninkaikeishi-shiken/keiji-20261021.html" target="_blank" rel="noopener">令和８年公認会計士試験の合格発表方法について</a>
+                <div class="card-meta">公認会計士・監査審査会 新着情報 ・ 2026-10-21 10:00</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://www.fsa.go.jp/cpaaob/kouninkaikeishi-shiken/keiji-20261021.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://www.fsa.go.jp/cpaaob/kouninkaikeishi-shiken/keiji-20261021.html" data-title="令和８年公認会計士試験の合格発表方法について"
+                          data-source="公認会計士・監査審査会 新着情報" data-date="2026-10-21 10:00" data-summary=""
+                          data-category="会計・監査基準動向" data-image="" data-icon="📊"
+                          data-importance="中" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">📊</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="https://www.fsa.go.jp/news/r8/singi/20261029.html" target="_blank" rel="noopener">企業会計審議会第３回サステナビリティ情報保証部会の開催について掲載しました。</a>
+                <div class="card-meta">金融庁 新着情報（会計・監査関連） ・ 2026-10-22 17:00</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://www.fsa.go.jp/news/r8/singi/20261029.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://www.fsa.go.jp/news/r8/singi/20261029.html" data-title="企業会計審議会第３回サステナビリティ情報保証部会の開催について掲載しました。"
+                          data-source="金融庁 新着情報（会計・監査関連）" data-date="2026-10-22 17:00" data-summary=""
+                          data-category="会計・監査基準動向" data-image="" data-icon="📊"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+
+            <article class="card">
+              <div class="thumb-wrap"><div class="thumb-fallback">📊</div></div>
+              <div class="card-body">
+                <div class="badge-row"><span class="badge" style="background:#6b7686;">重要度: 低</span></div>
+                <a class="card-title" href="https://www.fsa.go.jp/cpaaob/kouninkaikeishi-shiken/qanda/index.html" target="_blank" rel="noopener">試験,公認会計士試験に関するQ&amp;Aを更新しました。</a>
+                <div class="card-meta">公認会計士・監査審査会 新着情報 ・ 2026-10-21 09:59</div>
+                <p class="card-desc"></p>
+                <div class="audit-comment"><b>会計・監査への影響(参考):</b> 現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。</div>
+                <div class="card-footer">
+                  <a class="source-link" href="https://www.fsa.go.jp/cpaaob/kouninkaikeishi-shiken/qanda/index.html" target="_blank" rel="noopener">元記事を読む &rarr;</a>
+                  <button class="fav-btn" data-link="https://www.fsa.go.jp/cpaaob/kouninkaikeishi-shiken/qanda/index.html" data-title="試験,公認会計士試験に関するQ&amp;Aを更新しました。"
+                          data-source="公認会計士・監査審査会 新着情報" data-date="2026-10-21 09:59" data-summary=""
+                          data-category="会計・監査基準動向" data-image="" data-icon="📊"
+                          data-importance="低" data-comment="現時点で会計処理への直接的な影響は限定的と考えられますが、関連する取引・状況の変化には留意してください。">☆</button>
+                </div>
+              </div>
+            </article>
+        </section>
+</main>
+<script>
+function favStorageKey() { return 'news_digest_favorites'; }
+
+function loadFavorites() {
+  try {
+    return JSON.parse(localStorage.getItem(favStorageKey()) || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveFavorites(favs) {
+  localStorage.setItem(favStorageKey(), JSON.stringify(favs));
+}
+
+function isFavorited(link, favs) {
+  return favs.some(function (f) { return f.link === link; });
+}
+
+function toggleFavorite(btn) {
+  var favs = loadFavorites();
+  var link = btn.getAttribute('data-link');
+  var idx = favs.findIndex(function (f) { return f.link === link; });
+  if (idx >= 0) {
+    favs.splice(idx, 1);
+  } else {
+    favs.push({
+      link: link,
+      title: btn.getAttribute('data-title'),
+      source: btn.getAttribute('data-source'),
+      date: btn.getAttribute('data-date'),
+      summary: btn.getAttribute('data-summary'),
+      category: btn.getAttribute('data-category'),
+      image: btn.getAttribute('data-image'),
+      icon: btn.getAttribute('data-icon'),
+      importance: btn.getAttribute('data-importance'),
+      comment: btn.getAttribute('data-comment')
+    });
+  }
+  saveFavorites(favs);
+  refreshFavoriteButtons();
+  renderFavoritesSection();
+}
+
+function refreshFavoriteButtons() {
+  var favs = loadFavorites();
+  document.querySelectorAll('.fav-btn').forEach(function (btn) {
+    var link = btn.getAttribute('data-link');
+    if (isFavorited(link, favs)) {
+      btn.textContent = '★';
+      btn.classList.add('active');
+    } else {
+      btn.textContent = '☆';
+      btn.classList.remove('active');
+    }
+  });
+}
+
+function escapeHtml(text) {
+  var div = document.createElement('div');
+  div.textContent = text || '';
+  return div.innerHTML;
+}
+
+function favoriteCardHtml(f) {
+  var safeLink = escapeHtml(f.link);
+  var icon = escapeHtml(f.icon || '📰');
+  var thumb = f.image
+    ? '<img class="thumb" src="' + escapeHtml(f.image) + '" onerror="this.outerHTML=\'<div class=&quot;thumb-fallback&quot;>' + icon + '</div>\'">'
+    : '<div class="thumb-fallback">' + icon + '</div>';
+  return (
+    '<article class="card">' +
+    '<div class="thumb-wrap">' + thumb + '</div>' +
+    '<div class="card-body">' +
+    '<div class="badge-row"><span class="badge" style="background:#8a93a3;">' + escapeHtml(f.category) + '</span></div>' +
+    '<a class="card-title" href="' + safeLink + '" target="_blank" rel="noopener">' + escapeHtml(f.title) + '</a>' +
+    '<div class="card-meta">' + escapeHtml(f.source) + ' ・ ' + escapeHtml(f.date) + '</div>' +
+    '<p class="card-desc">' + escapeHtml(f.summary) + '</p>' +
+    '<div class="audit-comment"><b>会計・監査への影響(参考):</b> ' + escapeHtml(f.comment) + '</div>' +
+    '<div class="card-footer">' +
+    '<a class="source-link" href="' + safeLink + '" target="_blank" rel="noopener">元記事を読む &rarr;</a>' +
+    '<button class="fav-remove" data-link="' + safeLink + '">削除</button>' +
+    '</div></div></article>'
+  );
+}
+
+function renderFavoritesSection() {
+  var favs = loadFavorites();
+  var countEl = document.getElementById('fav-count');
+  if (countEl) { countEl.textContent = favs.length; }
+  var container = document.getElementById('favorites-list');
+  if (!container) { return; }
+  if (favs.length === 0) {
+    container.innerHTML = '<p class="empty">お気に入りはまだありません。各記事の☆ボタンで登録できます。</p>';
+    return;
+  }
+  container.innerHTML = favs.map(favoriteCardHtml).join('');
+  container.querySelectorAll('.fav-remove').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var link = btn.getAttribute('data-link');
+      var favs2 = loadFavorites().filter(function (f) { return f.link !== link; });
+      saveFavorites(favs2);
+      refreshFavoriteButtons();
+      renderFavoritesSection();
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.fav-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () { toggleFavorite(btn); });
+  });
+  refreshFavoriteButtons();
+  renderFavoritesSection();
+});
+</script>
+</body>
+</html>
